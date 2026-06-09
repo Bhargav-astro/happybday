@@ -1,183 +1,308 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+                <!DOCTYPE html>
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>HBD love</title>	    
-    <link type="text/css" rel="stylesheet" href="./file/default.css">
-    <script type="text/javascript" src="./file/jquery.min.js"></script>
-    <script type="text/javascript" src="./file/jscex.min.js"></script>
-    <script type="text/javascript" src="./file/jscex-parser.js"></script>
-    <script type="text/javascript" src="./file/jscex-jit.js"></script>
-    <script type="text/javascript" src="./file/jscex-builderbase.min.js"></script>
-    <script type="text/javascript" src="./file/jscex-async.min.js"></script>
-    <script type="text/javascript" src="./file/jscex-async-powerpack.min.js"></script>
-    <script type="text/javascript" src="./file/functions.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./file/love.js" charset="utf-8"></script>
-    <script>
-        function playAudio() {
-            var audio = document.getElementById("myAudio");
-            audio.play();
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Happy Birthday Bhanu ❤️</title>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff5fa2,#b388ff);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+color:white;
+text-align:center;
+}
+.card{
+width:90%;
+max-width:600px;
+padding:25px;
+border-radius:25px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(12px);
+}
+.hidden{display:none}
+button{
+padding:12px 25px;
+margin:10px;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+}
+.yes{background:#00c853;color:white}
+.no{background:#ff1744;color:white;position:relative}
+.gift{
+font-size:100px;
+cursor:pointer;
+animation:bounce 1s infinite;
+}
+@keyframes bounce{
+50%{transform:translateY(-12px)}
+}
+#loveResult{
+font-size:55px;
+margin:20px;
+font-weight:bold;
+}
+</style>
 </head>
+
 <body>
-    <div id="main">
-        <div id="error"><a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a> (<a href="http://firefox.com.cn/download/">Firefox</a>)</div>
-        <audio autoplay="autoplay" height="100" width="100" id="myAudio">
-            <source src="aud.mp3" type="audio/mp3" />
-            <embed height="100" width="100" src="aud.mp3" />
-        </audio>
-        <div id="wrap">
-            <div id="text">
-                <div id="code">
-                    <span class="say">My beautiful wife 💞</span><br>
-                    <span class="say">Happy Birthday 🎈</span><br>
-                    <span class="say">May Allah bless you 🍀</span><br>
-                    <span class="say">And give u many happiness 💕</span><br>
-                    <span class="say">I loved you ❤️</span><br>
-                    <span class="say">And I will always love u 🥺 ❤️</span><br>
-                    <span class="say">Hope u have a great day today ❤️😘</span><br>
-                </div>
-            </div>
-            <div id="clock-box">
-                <span id="clock">577 days 0 hours 0 minutes 0 seconds</span> <!-- Change to "6940 days..." if needed -->
-            </div>
-            <canvas id="canvas" width="1100" height="680"></canvas>
-        </div>
-    </div>
 
-    <script>
-    (function() {
-        var canvas = $('#canvas');
-		
-        if (!canvas[0].getContext) {
-            $("#error").show();
-            return false;
-        }
+<script>
+let ans=prompt("👑 Who is the Birthday Queen?");
 
-        var width = canvas.width();
-        var height = canvas.height();        
-        canvas.attr("width", width);
-        canvas.attr("height", height);
+if(!ans || ans.toLowerCase()!=="bhanu"){
+alert("😜 Wrong Answer!");
+location.reload();
+}
+</script>
 
-        var opts = {
-            seed: {
-                x: width / 2 - 20,
-                color: "rgb(190, 26, 37)",
-                scale: 2
-            },
-            branch: [
-                [535, 680, 570, 250, 500, 200, 30, 100, [
-                    [540, 500, 455, 417, 340, 400, 13, 100, [
-                        [450, 435, 434, 430, 394, 395, 2, 40]
-                    ]],
-                    [550, 445, 600, 356, 680, 345, 12, 100, [
-                        [578, 400, 648, 409, 661, 426, 3, 80]
-                    ]],
-                    [539, 281, 537, 248, 534, 217, 3, 40],
-                    [546, 397, 413, 247, 328, 244, 9, 80, [
-                        [427, 286, 383, 253, 371, 205, 2, 40],
-                        [498, 345, 435, 315, 395, 330, 4, 60]
-                    ]],
-                    [546, 357, 608, 252, 678, 221, 6, 100, [
-                        [590, 293, 646, 277, 648, 271, 2, 80]
-                    ]]
-                ]] 
-            ],
-            bloom: {
-                num: 700,
-                width: 1080,
-                height: 650,
-            },
-            footer: {
-                width: 1200,
-                height: 5,
-                speed: 10,
-            }
-        }
+<div class="card" id="screen1">
+<h1>🎂 Happy Birthday Bhanu ❤️</h1>
+<p>Your surprise is waiting...</p>
+<button onclick="next(2)">Start ❤️</button>
+</div>
 
-        var tree = new Tree(canvas[0], width, height, opts);
-        var seed = tree.seed;
-        var foot = tree.footer;
-        var hold = 1;
+<div class="card hidden" id="screen2">
+<h1>😂 Question 1</h1>
+<p>Who is the cutest today?</p>
+<button onclick="next(3)">Bhanu 😍</button>
+<button onclick="next(3)">Queen Bhanu 👑</button>
+</div>
 
-        canvas.click(function(e) {
-            playAudio();
-            var offset = canvas.offset(), x, y;
-            x = e.pageX - offset.left;
-            y = e.pageY - offset.top;
-            if (seed.hover(x, y)) {
-                hold = 0; 
-                canvas.unbind("click");
-                canvas.unbind("mousemove");
-                canvas.removeClass('hand');
-            }
-        }).mousemove(function(e) {
-            var offset = canvas.offset(), x, y;
-            x = e.pageX - offset.left;
-            y = e.pageY - offset.top;
-            canvas.toggleClass('hand', seed.hover(x, y));
-        });
+<div class="card hidden" id="screen3">
+<h1>🤭 Question 2</h1>
+<p>Who deserves unlimited cake?</p>
+<button onclick="next(4)">Bhanu 🎂</button>
+<button onclick="next(4)">Only Bhanu ❤️</button>
+</div>
 
-        var seedAnimate = eval(Jscex.compile("async", function () {
-            seed.draw();
-            while (hold) {
-                $await(Jscex.Async.sleep(10));
-            }
-            while (seed.canScale()) {
-                seed.scale(0.95);
-                $await(Jscex.Async.sleep(10));
-            }
-            while (seed.canMove()) {
-                seed.move(0, 2);
-                foot.draw();
-                $await(Jscex.Async.sleep(10));
-            }
-        }));
+<div class="card hidden" id="screen4">
+<h1>😏 Important Question</h1>
+<p>Will you accept unlimited love today?</p>
+<button class="yes" onclick="next('Love')">YES ❤️</button>
+<button class="no" id="noBtn">NO 😒</button>
+</div>
 
-        var growAnimate = eval(Jscex.compile("async", function () {
-            do {
-                tree.grow();
-                $await(Jscex.Async.sleep(10));
-            } while (tree.canGrow());
-        }));
+<div class="card hidden" id="screenLove">
+<h1>❤️ Love Meter ❤️</h1>
+<p>Calculating...</p>
+<div id="loveResult">0%</div>
+<button onclick="calculateLove()">Calculate ❤️</button>
+</div>
 
-        var flowAnimate = eval(Jscex.compile("async", function () {
-            do {
-                tree.flower(2);
-                $await(Jscex.Async.sleep(10));
-            } while (tree.canFlower());
-        }));
+<div class="card hidden" id="screenMarry">
+<h1>💍 One Final Question 💍</h1>
+<p style="font-size:24px;">Will You Marry Me? ❤️</p>
 
-        var moveAnimate = eval(Jscex.compile("async", function () {
-            tree.snapshot("p1", 240, 0, 610, 680);
-            while (tree.move("p1", 500, 0)) {
-                foot.draw();
-                $await(Jscex.Async.sleep(10));
-            }
-            foot.draw();
-            tree.snapshot("p2", 500, 0, 610, 680);
+<button class="yes" onclick="yesMarriage()">YES 💖</button>
+<button class="no" id="marryNo">NO 😜</button>
+</div>
 
-            canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
-            canvas.css("background", "#ffe");
-            $await(Jscex.Async.sleep(300));
-            canvas.css("background", "none");
-        }));
+<div class="card hidden" id="screen5">
+<h1>🎁 Birthday Gift</h1>
+<p>Tap the gift box</p>
+<div class="gift" onclick="openGift()">🎁</div>
+</div>
 
-        var textAnimate = eval(Jscex.compile("async", function () {
-            $("#code").show().typewriter();
-        }));
-	    
-        var runAsync = eval(Jscex.compile("async", function () {
-            $await(seedAnimate());
-            $await(growAnimate());
-            $await(flowAnimate());
-            $await(moveAnimate());
-            textAnimate().start();
-        }));
+<div class="card hidden" id="screen6">
+<h1>👑 Happy Birthday Bhanu ❤️</h1>
 
-        runAsync().start();
-    })();
-    </script>
+<p style="line-height:1.8">
+
+My Dearest Bhanu ❤️
+
+<br><br>
+
+Today is all about celebrating YOU.
+
+✨
+
+<br><br>
+
+Thank you for every smile,
+every laugh,
+every beautiful memory.
+
+💖
+
+<br><br>
+
+You make life brighter and happier.
+
+🌹
+
+<br><br>
+
+May your birthday be filled with joy,
+love,
+success and blessings.
+
+🎂❤️
+
+<br><br>
+
+I Love You Forever ❤️
+
+</p>
+
+<br>
+
+<button onclick="celebrate()">
+Celebrate 🎉
+</button>
+
+</div>
+
+<script>
+
+function next(id){
+
+document.querySelectorAll(".card").forEach(x=>{
+x.classList.add("hidden");
+});
+
+document.getElementById("screen"+id)
+.classList.remove("hidden");
+}
+
+const noBtn=document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+
+const x=Math.random()*250-125;
+const y=Math.random()*150-75;
+
+noBtn.style.transform=
+`translate(${x}px,${y}px)`;
+
+});
+
+function calculateLove(){
+
+let result=document.getElementById("loveResult");
+
+let p=0;
+
+let timer=setInterval(()=>{
+
+p++;
+
+result.innerHTML=p+"%";
+
+if(p>=100){
+
+clearInterval(timer);
+
+result.innerHTML=
+"100% ❤️ Perfect Match ❤️";
+
+confetti({
+particleCount:200,
+spread:120
+});
+
+setTimeout(()=>{
+next("Marry");
+},1500);
+
+}
+
+},30);
+
+}
+
+const marryNo=document.getElementById("marryNo");
+
+marryNo.addEventListener("mouseover",()=>{
+
+const msgs=[
+"😂 Nice Try!",
+"🙈 Wrong Button!",
+"❤️ Only YES Works!",
+"💍 Destiny Says YES!"
+];
+
+marryNo.innerHTML=
+msgs[Math.floor(Math.random()*msgs.length)];
+
+const x=Math.random()*250-125;
+const y=Math.random()*150-75;
+
+marryNo.style.transform=
+`translate(${x}px,${y}px)`;
+
+});
+
+function yesMarriage(){
+
+confetti({
+particleCount:300,
+spread:180
+});
+
+document.getElementById("screenMarry").innerHTML=`
+
+<h1>💖 YAYYYYYY 💖</h1>
+
+<h2>You made me the happiest person alive ❤️</h2>
+
+<p>
+Forever starts today 💍✨
+</p>
+
+<br>
+
+<button onclick="next(5)">
+Open Gift 🎁
+</button>
+
+`;
+
+}
+
+function openGift(){
+next(6);
+}
+
+function celebrate(){
+
+var end=Date.now()+7000;
+
+(function frame(){
+
+confetti({
+particleCount:7,
+angle:60,
+spread:55,
+origin:{x:0}
+});
+
+confetti({
+particleCount:7,
+angle:120,
+spread:55,
+origin:{x:1}
+});
+
+if(Date.now()<end){
+requestAnimationFrame(frame);
+}
+
+}());
+
+}
+
+</script>
+
 </body>
-</html>
+</html>        
